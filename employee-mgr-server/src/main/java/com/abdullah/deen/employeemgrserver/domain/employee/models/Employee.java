@@ -13,20 +13,19 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor //creates a  non argument constructor
 @RequiredArgsConstructor // creates a parameterized constructor
 @Data // generates getters and setters
-
 public class Employee {
 
-    @Id
+    @Id // a saved space in memory
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id; // getters and setters will be handled by the database
 
     @NonNull  //lombok knows to generate getters and setters
     private String firstName;
 
-    @NonNull
+    @NonNull //lombok knows to generate getters and setters
     private String lastName;
 
-    @NonNull
+    @NonNull //lombok knows to generate getters and setters
     private String email;
 
     @Override

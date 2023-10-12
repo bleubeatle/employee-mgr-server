@@ -50,7 +50,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee update(Long id, Employee employeeDetail) throws ResourceNotFoundException {
-        Employee  employee = getById(id);
+        Employee employee = getById(id);
         employee.setFirstName(employeeDetail.getFirstName());
         employee.setLastName(employeeDetail.getLastName());
         employee.setEmail(employeeDetail.getEmail());

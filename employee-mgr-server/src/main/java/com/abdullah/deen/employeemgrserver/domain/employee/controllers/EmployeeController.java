@@ -9,17 +9,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // allows spring to look for URIs & URLs to access external requests
-@RequestMapping("/api/v1/employees")
+
+@RestController // allows spring to look for URIs & URLs to access external requests,
+@RequestMapping("/api/v1/employees") //tells a web application how to handle incoming web requests
+@CrossOrigin("*") //limit who can make a request
 public class EmployeeController {
     private EmployeeService employeeService;
 
-    @Autowired
+    @Autowired //Provides metadata to the Spring Container to return the required dependency object at runtime
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
-    @GetMapping
+    @GetMapping //
     public ResponseEntity <List<Employee>> getAll(){
         List<Employee> employees = employeeService.getAll();
         return new ResponseEntity<>(employees, HttpStatus.OK);
